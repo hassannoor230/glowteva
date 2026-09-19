@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --cream: #f7f3ec;
+    --muted-cream: #ebe5da;
+    --soft-border: #d8d0c2;
+    --gold: #b89052;
+    --forest: #263b31;
+    --soft-green: #587064;
+    --dark-text: #26312b;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--cream);
+  }
+
+  body {
+    @apply bg-cream text-dark-text font-sans antialiased;
+    background-image: radial-gradient(circle at 12% 8%, rgba(184, 144, 82, 0.09), transparent 24rem), linear-gradient(135deg, rgba(255, 255, 255, 0.35), transparent 42%);
+    min-width: 320px;
+  }
+
+  ::selection {
+    @apply bg-gold/30 text-forest;
+  }
+}
+
+@layer components {
+  .container-luxury {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
+
+  .heading-display {
+    @apply font-serif text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-forest leading-[1.08];
+  }
+
+  .heading-section {
+    @apply font-serif text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-forest leading-[1.12];
+  }
+
+  .eyebrow {
+    @apply text-xs md:text-sm tracking-[0.2em] uppercase text-soft-green font-medium;
+  }
+
+  .body-elegant {
+    @apply text-base md:text-lg text-soft-green leading-relaxed;
+  }
+
+  .gold-line {
+    @apply h-px w-16 bg-gold;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-forest text-cream text-sm tracking-wide font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-soft-green hover:shadow-elegant focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 border border-forest text-forest text-sm tracking-wide font-medium transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest hover:text-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gold text-forest text-sm tracking-wide font-medium transition-all duration-300 hover:bg-gold/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-forest focus-visible:ring-offset-2 focus-visible:ring-offset-cream;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 text-forest text-sm tracking-wide font-medium transition-all duration-300 hover:text-gold focus:outline-none;
+  }
+
+  .input-luxury {
+    @apply w-full px-4 py-3 bg-white/75 border border-soft-border text-dark-text placeholder:text-soft-green/60 focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors duration-200;
+  }
+
+  .card-luxury {
+    @apply bg-white/80 border border-soft-border/60 shadow-soft overflow-hidden;
+  }
+
+  .link-underline {
+    @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-gold after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .editorial-rule {
+    @apply border-t border-soft-border/70;
+  }
+
+  .image-frame {
+    @apply overflow-hidden bg-muted-cream;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F8F5F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #DED7CC;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C5A46E;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
