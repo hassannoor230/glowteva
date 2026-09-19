@@ -1,12 +1,20 @@
 {
-  "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts": {
-    "id": "..\\node_modules\\next\\dist\\client\\dev\\hot-reloader\\app\\use-websocket.js -> @vercel/turbopack-ecmascript-runtime/browser/dev/hmr-client/hmr-client.ts",
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 67489,
     "files": [
-      "static/chunks/_app-pages-browser_node_modules_next_dist_client_dev_noop-turbopack-hmr_js.js"
+      "static/chunks/7489.395193bf37b80884.js"
+    ]
+  },
+  "..\\node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 70012,
+    "files": [
+      "static/chunks/12.06a7f14bd6716249.js"
     ]
   },
   "lib\\api.ts -> @/store/auth": {
-    "id": "lib\\api.ts -> @/store/auth",
-    "files": []
+    "id": 18035,
+    "files": [
+      "static/chunks/8035.1c7cea115575c7b4.js"
+    ]
   }
 }
