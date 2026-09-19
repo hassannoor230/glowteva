@@ -1,4 +1,19 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const productionApiOrigin = 'https://glowtevabackend.vercel.app';
+
+const normalizeApiUrl = () => {
+  const defaultOrigin = process.env.NODE_ENV === 'production'
+    ? productionApiOrigin
+    : 'http://localhost:5000';
+  const configured = process.env.NEXT_PUBLIC_API_URL || defaultOrigin;
+  const trimmed = configured.trim().replace(/\/+$/, '');
+  const withoutDuplicateApiPath = trimmed.replace(/\/api\/api$/i, '/api');
+
+  return withoutDuplicateApiPath.endsWith('/api')
+    ? withoutDuplicateApiPath
+    : `${withoutDuplicateApiPath}/api`;
+};
+
+const API_URL = normalizeApiUrl();
 
 interface RequestOptions extends RequestInit {
   token?: string | null;
