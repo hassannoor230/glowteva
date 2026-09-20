@@ -14,27 +14,9 @@ import { api } from '@/lib/api';
 import { formatPrice } from '@/lib/utils';
 import { useCartStore } from '@/store/cart';
 import { useAuthStore } from '@/store/auth';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 import ServiceJsonLd from '@/components/seo/ServiceJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Product | GlowTeva Organics',
-  description: 'Discover GlowTeva Organics premium organic skincare products.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Product | GlowTeva Organics',
-    description: 'Discover GlowTeva Organics premium organic skincare products.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Product | GlowTeva Organics',
-    description: 'Discover GlowTeva Organics premium organic skincare products.',
-  },
-};
 
 export default function ProductPage() {
   const { slug } = useParams<{ slug: string }>();

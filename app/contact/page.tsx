@@ -13,24 +13,6 @@ import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 import LocalBusinessJsonLd from '@/components/seo/LocalBusinessJsonLd';
 import FAQJsonLd from '@/components/seo/FAQJsonLd';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Contact GlowTeva Organics | Get in Touch',
-  description: 'Get in touch with GlowTeva Organics. Questions about products, orders, or our botanical skincare rituals? We would love to hear from you.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Contact GlowTeva Organics | Get in Touch',
-    description: 'Get in touch with GlowTeva Organics. Questions about products, orders, or our botanical skincare rituals? We would love to hear from you.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Contact GlowTeva Organics',
-    description: 'Get in touch with GlowTeva Organics. We would love to hear from you.',
-  },
-};
 
 const schema = z.object({
   name: z.string().min(2, 'Name is required'),

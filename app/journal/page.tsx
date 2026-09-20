@@ -6,26 +6,8 @@ import Image from 'next/image';
 import type { JournalArticle } from '@/types';
 import { api } from '@/lib/api';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Journal | Stories & Rituals',
-  description: 'Botanical skincare, rituals, ingredients, and the quieter side of beauty. Discover articles from the GlowTeva Journal.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Journal | Stories & Rituals',
-    description: 'Botanical skincare, rituals, ingredients, and the quieter side of beauty.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Journal | Stories & Rituals',
-    description: 'Botanical skincare, rituals, ingredients, and the quieter side of beauty.',
-  },
-};
 
 export default function JournalPage() {
   const [articles, setArticles] = useState<JournalArticle[]>([]);

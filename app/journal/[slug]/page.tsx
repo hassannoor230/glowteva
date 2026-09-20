@@ -8,26 +8,8 @@ import type { JournalArticle } from '@/types';
 import { api } from '@/lib/api';
 import { formatDate } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Journal Article | GlowTeva Organics',
-  description: 'Discover articles about botanical skincare, rituals, and ingredients from the GlowTeva Journal.',
-  openGraph: {
-    type: 'article',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Journal Article | GlowTeva Organics',
-    description: 'Discover articles about botanical skincare, rituals, and ingredients.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Journal Article | GlowTeva Organics',
-    description: 'Discover articles about botanical skincare, rituals, and ingredients.',
-  },
-};
 
 export default function JournalArticlePage() {
   const { slug } = useParams<{ slug: string }>();

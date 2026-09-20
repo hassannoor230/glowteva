@@ -3,26 +3,8 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Thank You | GlowTeva Organics',
-  description: 'Your order has been received. A confirmation will be sent to your email.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Thank You | GlowTeva Organics',
-    description: 'Your order has been received.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Thank You | GlowTeva Organics',
-    description: 'Your order has been received.',
-  },
-};
 
 function SuccessContent() {
   const params = useSearchParams();

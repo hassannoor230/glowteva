@@ -9,26 +9,8 @@ import { api } from '@/lib/api';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Forgot Password | GlowTeva Organics',
-  description: 'Reset your GlowTeva Organics account password.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Forgot Password | GlowTeva Organics',
-    description: 'Reset your GlowTeva Organics account password.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Forgot Password | GlowTeva Organics',
-    description: 'Reset your GlowTeva Organics account password.',
-  },
-};
 
 const schema = z.object({ email: z.string().email() });
 

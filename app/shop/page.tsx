@@ -9,27 +9,9 @@ import type { Product } from '@/types';
 import { api } from '@/lib/api';
 import { cn } from '@/lib/utils';
 import { Check, RotateCcw, SlidersHorizontal } from 'lucide-react';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
 import ServiceJsonLd from '@/components/seo/ServiceJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Shop GlowTeva | Premium Organic Skincare',
-  description: 'Browse our full collection of premium organic skincare. Pure botanical ingredients, elegant formulations, and luxury rituals for luminous skin.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Shop GlowTeva | Premium Organic Skincare',
-    description: 'Browse our full collection of premium organic skincare. Pure botanical ingredients for luminous skin.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Shop GlowTeva',
-    description: 'Browse our full collection of premium organic skincare.',
-  },
-};
 
 const sorts = [
   { value: 'newest', label: 'Newest' },

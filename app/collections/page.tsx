@@ -5,26 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { api } from '@/lib/api';
 import { Skeleton } from '@/components/ui/skeleton';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Collections | Browse by Category',
-  description: 'Explore our thoughtfully organized botanical collections — from skincare rituals to wellness essentials.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Collections | Browse by Category',
-    description: 'Explore our thoughtfully organized botanical collections — from skincare rituals to wellness essentials.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Collections',
-    description: 'Explore our thoughtfully organized botanical collections.',
-  },
-};
 
 interface Category {
   _id: string;

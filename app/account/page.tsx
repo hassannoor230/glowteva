@@ -10,26 +10,8 @@ import { formatPrice, formatDate } from '@/lib/utils';
 import type { Order } from '@/types';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/product/ProductCard';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'My Account | GlowTeva Organics',
-  description: 'Manage your GlowTeva Organics account, orders, wishlist, and profile.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'My Account | GlowTeva Organics',
-    description: 'Manage your GlowTeva Organics account, orders, and wishlist.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'My Account | GlowTeva Organics',
-    description: 'Manage your GlowTeva Organics account.',
-  },
-};
 
 function AccountContent() {
   const router = useRouter();

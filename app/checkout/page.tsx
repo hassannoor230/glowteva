@@ -14,26 +14,8 @@ import { formatPrice } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Checkout | GlowTeva Organics',
-  description: 'Complete your order. Secure checkout with multiple payment options.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Checkout | GlowTeva Organics',
-    description: 'Complete your order. Secure checkout with multiple payment options.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Checkout | GlowTeva Organics',
-    description: 'Complete your order.',
-  },
-};
 
 const schema = z.object({
   firstName: z.string().min(1),

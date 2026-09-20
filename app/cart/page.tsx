@@ -1,28 +1,12 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import { useCartStore } from '@/store/cart';
 import { formatPrice } from '@/lib/utils';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Cart | GlowTeva Organics',
-  description: 'Your shopping cart at GlowTeva Organics. Review your botanical ritual selections.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Cart | GlowTeva Organics',
-    description: 'Your shopping cart at GlowTeva Organics.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Cart | GlowTeva Organics',
-    description: 'Your shopping cart at GlowTeva Organics.',
-  },
-};
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getSubtotal } = useCartStore();

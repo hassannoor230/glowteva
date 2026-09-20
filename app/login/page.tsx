@@ -11,26 +11,8 @@ import { useAuthStore } from '@/store/auth';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
-import type { Metadata } from 'next';
 import JsonLd from '@/components/seo/JsonLd';
 import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
-
-export const metadata: Metadata = {
-  title: 'Sign In | GlowTeva Organics',
-  description: 'Sign in to your GlowTeva Organics account to manage orders, wishlist, and more.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'GlowTeva Organics',
-    title: 'Sign In | GlowTeva Organics',
-    description: 'Sign in to your GlowTeva Organics account.',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Sign In | GlowTeva Organics',
-    description: 'Sign in to your GlowTeva account.',
-  },
-};
 
 const schema = z.object({
   email: z.string().email('Invalid email'),
