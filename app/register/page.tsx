@@ -11,6 +11,26 @@ import { useAuthStore } from '@/store/auth';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
+import type { Metadata } from 'next';
+import JsonLd from '@/components/seo/JsonLd';
+import BreadcrumbJsonLd from '@/components/seo/BreadcrumbJsonLd';
+
+export const metadata: Metadata = {
+  title: 'Create Account | GlowTeva Organics',
+  description: 'Create a GlowTeva Organics account to manage orders, track shipments, and build your wishlist.',
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    siteName: 'GlowTeva Organics',
+    title: 'Create Account | GlowTeva Organics',
+    description: 'Create a GlowTeva Organics account.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Create Account | GlowTeva Organics',
+    description: 'Create a GlowTeva Organics account.',
+  },
+};
 
 const schema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -28,6 +48,7 @@ export default function RegisterPage() {
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
+  const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://glowteva.com';
 
   const onSubmit = async (data: FormData) => {
     setError('');
@@ -41,43 +62,47 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="pt-28 pb-20 min-h-screen flex items-center">
-      <div className="container-luxury max-w-md mx-auto">
-        <div className="text-center mb-10">
-          <p className="eyebrow mb-3">JOIN GLOWTEVA</p>
-          <h1 className="heading-section">Create Account</h1>
+    <>
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Create Account', url: `${base}/register`, description: 'Create a GlowTeva Organics account.' }} />
+      <BreadcrumbJsonLd items={[{ name: 'Home', url: '/' }, { name: 'Create Account', url: '/register' }]} />
+      <div className="pt-28 pb-20 min-h-screen flex items-center">
+        <div className="container-luxury max-w-md mx-auto">
+          <div className="text-center mb-10">
+            <p className="eyebrow mb-3">JOIN GLOWTEVA</p>
+            <h1 className="heading-section">Create Account</h1>
+          </div>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <div>
+              <Label htmlFor="name">Full Name</Label>
+              <Input id="name" {...register('name')} />
+              {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>}
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" {...register('email')} />
+              {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>}
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" {...register('password')} />
+              {errors.password && <p className="text-red-600 text-xs mt-1">{errors.password.message}</p>}
+            </div>
+            <div>
+              <Label htmlFor="confirmPassword">Confirm Password</Label>
+              <Input id="confirmPassword" type="password" {...register('confirmPassword')} />
+              {errors.confirmPassword && <p className="text-red-600 text-xs mt-1">{errors.confirmPassword.message}</p>}
+            </div>
+            {error && <p className="text-red-600 text-sm">{error}</p>}
+            <Button type="submit" className="w-full" disabled={isSubmitting}>
+              {isSubmitting ? 'Creating account...' : 'Create Account'}
+            </Button>
+          </form>
+          <p className="mt-6 text-center text-sm text-soft-green">
+            Already have an account?{' '}
+            <Link href="/login" className="text-forest hover:text-gold">Sign in</Link>
+          </p>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-          <div>
-            <Label htmlFor="name">Full Name</Label>
-            <Input id="name" {...register('name')} />
-            {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" {...register('email')} />
-            {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" {...register('password')} />
-            {errors.password && <p className="text-red-600 text-xs mt-1">{errors.password.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="confirmPassword">Confirm Password</Label>
-            <Input id="confirmPassword" type="password" {...register('confirmPassword')} />
-            {errors.confirmPassword && <p className="text-red-600 text-xs mt-1">{errors.confirmPassword.message}</p>}
-          </div>
-          {error && <p className="text-red-600 text-sm">{error}</p>}
-          <Button type="submit" className="w-full" disabled={isSubmitting}>
-            {isSubmitting ? 'Creating account...' : 'Create Account'}
-          </Button>
-        </form>
-        <p className="mt-6 text-center text-sm text-soft-green">
-          Already have an account?{' '}
-          <Link href="/login" className="text-forest hover:text-gold">Sign in</Link>
-        </p>
       </div>
-    </div>
+    </>
   );
 }

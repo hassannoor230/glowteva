@@ -2,13 +2,17 @@ import type { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = process.env.NEXT_PUBLIC_SITE_URL || 'https://glowteva.com';
+  const now = new Date();
+
   return [
-    { url: base, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-    { url: `${base}/shop`, lastModified: new Date(), changeFrequency: 'daily', priority: 0.9 },
-    { url: `${base}/collections`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${base}/story`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/sustainability`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/journal`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${base}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.5 },
+    { url: base, lastModified: now, changeFrequency: 'weekly', priority: 1 },
+    { url: `${base}/shop`, lastModified: now, changeFrequency: 'daily', priority: 0.9 },
+    { url: `${base}/collections`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${base}/story`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/sustainability`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${base}/journal`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    { url: `${base}/contact`, lastModified: now, changeFrequency: 'monthly', priority: 0.5 },
+    { url: `${base}/checkout`, lastModified: now, changeFrequency: 'monthly', priority: 0.3 },
+    { url: `${base}/checkout/success`, lastModified: now, changeFrequency: 'monthly', priority: 0.2 },
   ];
 }
