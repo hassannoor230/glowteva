@@ -8,13 +8,14 @@ import gsap from 'gsap';
 const slides = [
   {
     id: 1,
-    eyebrow: 'THE GLOWTEVA RITUAL',
-    headline: 'Glow Naturally.',
-    description: 'Botanical rituals crafted for beautifully luminous skin.',
-    cta: 'Explore Collection',
+    eyebrow: 'THE HAIR MILK RITUAL',
+    headline: 'Silky Hair. Naturally.',
+    description: 'A luminous daily serum for softer, smoother, beautifully nourished hair.',
+    cta: 'Shop Hair Milk Serum',
     href: '/shop',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85',
-    productImage: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80',
+    image: process.env.NEXT_PUBLIC_HERO_IMAGE || 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85',
+    productImage: '',
+    showProduct: false,
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const slides = [
     href: '/story',
     image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1600&q=85',
     productImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
+    showProduct: true,
   },
   {
     id: 3,
@@ -35,6 +37,7 @@ const slides = [
     href: '/shop',
     image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=85',
     productImage: 'https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=600&q=80',
+    showProduct: true,
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ const slides = [
     href: '/collections',
     image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1600&q=85',
     productImage: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
+    showProduct: true,
   },
 ];
 
@@ -247,23 +251,24 @@ export default function HeroSlider() {
           </div>
 
           {/* Floating product */}
-          <div
-            ref={(el) => { productRefs.current[i] = el; }}
-            className="absolute right-[8%] top-1/2 -translate-y-1/2 z-20 hidden lg:block w-[280px] xl:w-[340px]"
-            style={{ transformStyle: 'preserve-3d' }}
-          >
-            <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
-              <Image
-                src={slide.productImage}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="340px"
-              />
+          {slide.showProduct && (
+            <div
+              ref={(el) => { productRefs.current[i] = el; }}
+              className="absolute right-[8%] top-1/2 -translate-y-1/2 z-20 hidden lg:block w-[280px] xl:w-[340px]"
+              style={{ transformStyle: 'preserve-3d' }}
+            >
+              <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
+                <Image
+                  src={slide.productImage}
+                  alt=""
+                  fill
+                  className="object-cover"
+                  sizes="340px"
+                />
+              </div>
+              <div className="absolute -left-8 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold to-transparent" />
             </div>
-            {/* Gold decorative line */}
-            <div className="absolute -left-8 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold to-transparent" />
-          </div>
+          )}
         </div>
       ))}
 
