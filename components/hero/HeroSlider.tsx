@@ -13,7 +13,7 @@ const slides = [
     description: 'A luminous daily serum for softer, smoother, beautifully nourished hair.',
     cta: 'Shop Hair Milk Serum',
     href: '/shop',
-    image: process.env.NEXT_PUBLIC_HERO_IMAGE || 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85',
+    image: process.env.NEXT_PUBLIC_HERO_IMAGE || 'e:\Gemini_Generated_Image_xcms0xxcms0xxcms-removebg-preview.png',
     productImage: 'e:\Gemini_Generated_Image_xcms0xxcms0xxcms-removebg-preview.png',
     showProduct: false,
   },
