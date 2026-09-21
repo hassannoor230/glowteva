@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import gsap from 'gsap';
 
@@ -13,9 +12,9 @@ const slides = [
     description: 'A luminous daily serum for softer, smoother, beautifully nourished hair.',
     cta: 'Shop Hair Milk Serum',
     href: '/shop',
-    image: process.env.NEXT_PUBLIC_HERO_IMAGE || 'e:\Gemini_Generated_Image_xcms0xxcms0xxcms-removebg-preview.png',
-    productImage: 'e:\Gemini_Generated_Image_xcms0xxcms0xxcms-removebg-preview.png',
-    showProduct: false,
+    image: '/hero/banner.jpg',
+    productImage: '/hero/product.png',
+    showProduct: true,
   },
   {
     id: 2,
@@ -24,8 +23,8 @@ const slides = [
     description: 'Pure botanical ingredients, elevated into modern beauty rituals.',
     cta: 'Discover the Ritual',
     href: '/story',
-    image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1600&q=85',
-    productImage: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&q=80',
+    image: '/hero/slide2.jpg',
+    productImage: '/hero/slide2-product.png',
     showProduct: true,
   },
   {
@@ -35,8 +34,8 @@ const slides = [
     description: 'A softer, slower approach to everyday beauty.',
     cta: 'Shop GlowTeva',
     href: '/shop',
-    image: 'https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1600&q=85',
-    productImage: 'https://images.unsplash.com/photo-1570194065650-d99fb4b38b17?w=600&q=80',
+    image: '/hero/slide3.jpg',
+    productImage: '/hero/slide3-product.png',
     showProduct: true,
   },
   {
@@ -46,8 +45,8 @@ const slides = [
     description: "Nature's finest ingredients, beautifully transformed.",
     cta: 'View Collection',
     href: '/collections',
-    image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1600&q=85',
-    productImage: 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?w=600&q=80',
+    image: '/hero/slide4.jpg',
+    productImage: '/hero/slide4-product.png',
     showProduct: true,
   },
 ];
@@ -219,13 +218,12 @@ export default function HeroSlider() {
         >
           {/* Background */}
           <div className="absolute inset-0">
-            <Image
+            <img
               src={slide.image}
               alt=""
-              fill
-              className="object-cover"
-              priority={i === 0}
-              sizes="100vw"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectFit: 'cover', objectPosition: 'center' }}
+              draggable={false}
             />
             <div className="absolute inset-0 bg-gradient-to-r from-forest/70 via-forest/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-forest/20" />
@@ -258,12 +256,12 @@ export default function HeroSlider() {
               style={{ transformStyle: 'preserve-3d' }}
             >
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
-                <Image
+                <img
                   src={slide.productImage}
                   alt=""
-                  fill
-                  className="object-cover"
-                  sizes="340px"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  draggable={false}
                 />
               </div>
               <div className="absolute -left-8 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold to-transparent" />
