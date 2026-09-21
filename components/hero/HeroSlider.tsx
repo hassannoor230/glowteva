@@ -13,8 +13,10 @@ const slides = [
     cta: 'Shop Hair Milk Serum',
     href: '/shop',
     image: '/hero/banner.jpg',
+    mobileImage: '/hero/m-slide1.jpg',
     productImage: '/hero/product.png',
     showProduct: true,
+    objectPosition: 'center 42%',
   },
   {
     id: 2,
@@ -24,8 +26,10 @@ const slides = [
     cta: 'Discover the Ritual',
     href: '/story',
     image: '/hero/slide2.jpg',
+    mobileImage: '/hero/m-slide2.jpg',
     productImage: '/hero/slide2-product.png',
     showProduct: true,
+    objectPosition: 'center 42%',
   },
   {
     id: 3,
@@ -35,8 +39,10 @@ const slides = [
     cta: 'Shop GlowTeva',
     href: '/shop',
     image: '/hero/slide3.jpg',
+    mobileImage: '/hero/m-slide3.jpg',
     productImage: '/hero/slide3-product.png',
     showProduct: true,
+    objectPosition: 'center',
   },
   {
     id: 4,
@@ -46,8 +52,10 @@ const slides = [
     cta: 'View Collection',
     href: '/collections',
     image: '/hero/slide4.jpg',
+    mobileImage: '/hero/m-slide4.jpg',
     productImage: '/hero/slide4-product.png',
     showProduct: true,
+    objectPosition: 'center',
   },
 ];
 
@@ -199,8 +207,8 @@ export default function HeroSlider() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full overflow-hidden bg-forest perspective-1000 h-[68vh] sm:h-[76vh] md:h-[86vh] lg:h-[100vh]"
-      style={{ maxHeight: '1100px', minHeight: '480px' }}
+      className="relative w-full overflow-hidden bg-forest perspective-1000 h-[52vh] sm:h-[62vh] md:h-[76vh] lg:h-[100vh]"
+      style={{ maxHeight: '1100px', minHeight: '420px' }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={onTouchStart}
@@ -219,14 +227,18 @@ export default function HeroSlider() {
         >
           {/* Background */}
           <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={slide.image}
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover"
-              style={{ objectFit: 'cover', objectPosition: 'center' }}
-              draggable={false}
-              sizes="100vw"
-            />
+            <picture>
+              {slide.mobileImage && (
+                <source media="(max-width: 767px)" srcSet={slide.mobileImage} />
+              )}
+              <img
+                src={slide.image}
+                alt=""
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ objectFit: 'cover', objectPosition: slide.objectPosition }}
+                draggable={false}
+              />
+            </picture>
             <div className="absolute inset-0 bg-gradient-to-r from-forest/70 via-forest/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-forest/20" />
           </div>
