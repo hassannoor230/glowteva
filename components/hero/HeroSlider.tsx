@@ -199,7 +199,8 @@ export default function HeroSlider() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[100vh] min-h-[600px] max-h-[1100px] overflow-hidden bg-forest perspective-1000"
+      className="relative w-full overflow-hidden bg-forest perspective-1000 h-[68vh] sm:h-[76vh] md:h-[86vh] lg:h-[100vh]"
+      style={{ maxHeight: '1100px', minHeight: '480px' }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={onTouchStart}
@@ -217,13 +218,14 @@ export default function HeroSlider() {
           }}
         >
           {/* Background */}
-          <div className="absolute inset-0">
+          <div className="absolute inset-0 overflow-hidden">
             <img
               src={slide.image}
               alt=""
               className="absolute inset-0 w-full h-full object-cover"
               style={{ objectFit: 'cover', objectPosition: 'center' }}
               draggable={false}
+              sizes="100vw"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-forest/70 via-forest/40 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-forest/50 via-transparent to-forest/20" />
@@ -233,16 +235,16 @@ export default function HeroSlider() {
           <div className="relative z-20 h-full container-luxury flex items-center">
             <div
               ref={(el) => { contentRefs.current[i] = el; }}
-              className="max-w-xl pt-20"
+              className="max-w-full sm:max-w-xl pt-16 sm:pt-20 px-5 sm:px-0"
             >
-              <p className="eyebrow text-gold mb-4">{slide.eyebrow}</p>
-              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-cream leading-[1.1] mb-6 text-balance">
+              <p className="eyebrow text-gold mb-3 sm:mb-4 text-xs sm:text-sm">{slide.eyebrow}</p>
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-cream leading-[1.15] mb-4 sm:mb-6 text-balance">
                 {slide.headline}
               </h1>
-              <p className="text-cream/80 text-base md:text-lg leading-relaxed mb-8 max-w-md">
+              <p className="text-cream/80 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 max-w-full sm:max-w-md">
                 {slide.description}
               </p>
-              <Link href={slide.href} className="btn-gold">
+              <Link href={slide.href} className="btn-gold inline-block">
                 {slide.cta}
               </Link>
             </div>
@@ -252,7 +254,7 @@ export default function HeroSlider() {
           {slide.showProduct && (
             <div
               ref={(el) => { productRefs.current[i] = el; }}
-              className="absolute right-[8%] top-1/2 -translate-y-1/2 z-20 hidden lg:block w-[280px] xl:w-[340px]"
+              className="absolute right-[5%] sm:right-[8%] top-1/2 -translate-y-1/2 z-20 hidden lg:block w-[200px] sm:w-[240px] md:w-[280px] xl:w-[340px]"
               style={{ transformStyle: 'preserve-3d' }}
             >
               <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-2xl">
@@ -261,19 +263,20 @@ export default function HeroSlider() {
                   alt=""
                   className="absolute inset-0 w-full h-full object-cover"
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
+                  sizes="(max-width: 1024px) 0px, 340px"
                   draggable={false}
                 />
               </div>
-              <div className="absolute -left-8 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold to-transparent" />
+              <div className="absolute -left-6 sm:-left-8 top-1/4 w-px h-1/2 bg-gradient-to-b from-transparent via-gold to-transparent" />
             </div>
           )}
         </div>
       ))}
 
       {/* Controls */}
-      <div className="absolute bottom-8 left-0 right-0 z-30 container-luxury">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
+      <div className="absolute bottom-4 sm:bottom-8 left-0 right-0 z-30 container-luxury px-5 sm:px-0">
+        <div className="flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -289,7 +292,7 @@ export default function HeroSlider() {
           </div>
 
           {/* Progress */}
-          <div className="hidden sm:block flex-1 mx-8 max-w-xs">
+          <div className="hidden sm:block flex-1 mx-4 lg:mx-8 max-w-xs">
             <div className="h-px bg-cream/20 overflow-hidden">
               <div
                 ref={progressRef}
@@ -299,17 +302,17 @@ export default function HeroSlider() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <button
               onClick={prev}
-              className="w-10 h-10 border border-cream/30 text-cream flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 border border-cream/30 text-cream flex items-center justify-center hover:border-gold hover:text-gold transition-colors text-sm sm:text-base"
               aria-label="Previous slide"
             >
               ←
             </button>
             <button
               onClick={next}
-              className="w-10 h-10 border border-cream/30 text-cream flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+              className="w-9 h-9 sm:w-10 sm:h-10 border border-cream/30 text-cream flex items-center justify-center hover:border-gold hover:text-gold transition-colors text-sm sm:text-base"
               aria-label="Next slide"
             >
               →
