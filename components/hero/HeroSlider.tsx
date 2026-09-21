@@ -13,8 +13,8 @@ const slides = [
     description: 'Botanical rituals crafted for beautifully luminous skin.',
     cta: 'Explore Collection',
     href: '/shop',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85',
-    productImage: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80',
+    image: 'e:\gemini_Generated_Image_xcms0xxcms0xxcms.jfif',
+    productImage: 'e:\gemini_Generated_Image_xcms0xxcms0xxcms.jfif,https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=600&q=80',
   },
   {
     id: 2,
