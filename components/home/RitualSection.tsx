@@ -33,7 +33,7 @@ export default function RitualSection() {
           </div>
           <div className="relative aspect-[4/5] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=800&q=85"
+              src="ingrdiant r.jfif"
               alt="Skincare ritual"
               fill className="object-cover" sizes="50vw"
             />

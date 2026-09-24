@@ -8,10 +8,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
 const ingredients = [
-  { name: 'Rosehip Oil', desc: 'Essential fatty acids for radiant softness', image: 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400&q=80' },
-  { name: 'Jojoba', desc: 'Nature’s closest match to skin’s own oils', image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&q=80' },
-  { name: 'Damask Rose', desc: 'Calming botanical for balanced skin', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&q=80' },
-  { name: 'Shea Butter', desc: 'Deep nourishment and lasting comfort', image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&q=80' },
+  { name: 'Hair Oil', desc: 'Essential fatty acids for radiant softness', image: '/Philosphy.png' },
+  { name: 'Clenser Plus', desc: 'Nature’s closest match to skin’s own oils', image: '/ingredent 2.png' },
+  { name: 'Vitamin C Serum', desc: 'Calming botanical for balanced skin', image: '/ingrediant 3.jpg' },
+  { name: 'Moisturizer', desc: 'Deep nourishment and lasting comfort', image: '/ingrdiant r.jfif' },
 ];
 
 export default function BotanicalIngredients() {

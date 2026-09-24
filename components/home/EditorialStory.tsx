@@ -8,9 +8,9 @@ export default function EditorialStory() {
     <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=85"
+          src=" /editorial.png"
           alt="Editorial beauty story"
-          fill className="object-cover" sizes="100vw"
+          fill className="object-cover" sizes="90vw"
         />
         <div className="absolute inset-0 bg-forest/55" />
       </div>

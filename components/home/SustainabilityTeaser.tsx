@@ -21,7 +21,7 @@ export default function SustainabilityTeaser() {
           </div>
           <div className="relative aspect-[4/3] overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=900&q=85"
+              src="/commitment.png"
               alt="Natural botanical landscape"
               fill className="object-cover" sizes="50vw"
             />

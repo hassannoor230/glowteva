@@ -29,11 +29,13 @@ export default function BrandPhilosophy() {
     <section ref={sectionRef} className="section-padding bg-cream overflow-hidden">
       <div className="container-luxury">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="philosophy-image relative aspect-[4/5] overflow-hidden">
+          <div className="philosophy-image relative aspect-[4/5] overflow-hidden rounded-[28px] bg-ivory/60 shadow-[0_20px_60px_rgba(76,52,24,0.10)]">
             <Image
-              src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=900&q=85"
+              src="/Philosphy.png"
               alt="GlowTeva philosophy — serene beauty moment"
-              fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 50vw"
             />
             <div className="absolute -bottom-4 -right-4 w-32 h-32 border border-gold/40 hidden lg:block" />
           </div>
